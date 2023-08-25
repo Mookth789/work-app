@@ -19,14 +19,8 @@ app.use(morgan('dev'))
 app.use(cors())
 app.use(bodyParse.json({ limit: '10mb' }))
 
-// Route 1
-// app.get('/product', (req, res) => {
-//     res.send('Hello Endpoint 555')
-// })
+app.use('/uploads', express.static('uploads'))
 
-// Route 2
-// app.use('/api', productRouters)
-// app.use('/api', authRouters)
 
 // Route 3
 readdirSync('./Routes')
