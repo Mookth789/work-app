@@ -22,9 +22,30 @@ exports.list = async (req, res) => {
     } catch (err) {
         // error
         console.log(err)
-        res.status(500).send('Server Error')
+        res.status(500).send('Server Error');
     }
-}
+};
+
+
+
+exports.listby = async (req, res) => {
+    try {
+        // code
+        const { limit, sort, order } = req.body;
+        const producted = await Product.find({})
+        .limit(limit)
+        .sort([['price','order']])
+        .exec();
+        res.send(producted);
+    } catch (err) {
+        // error
+        console.log(err)
+        res.status(500).send('Server Error');
+    }
+};
+
+
+
 exports.create = async (req, res) => {
     try {
         // code
@@ -38,9 +59,10 @@ exports.create = async (req, res) => {
     } catch (err) {
         // error
         console.log(err)
-        res.status(500).send('Server Error')
+        res.status(500).send('Server Error');
     }
-}
+};
+
 exports.update = async (req, res) => {
     try {
         // code
@@ -66,9 +88,10 @@ exports.update = async (req, res) => {
     } catch (err) {
         // error
         console.log(err)
-        res.status(500).send('Server Error')
+        res.status(500).send('Server Error');
     }
-}
+};
+
 exports.remove = async (req, res) => {
     try {
         // code
@@ -89,6 +112,6 @@ exports.remove = async (req, res) => {
     } catch (err) {
         // error
         console.log(err)
-        res.status(500).send('Server Error')
+        res.status(500).send('Server Error');
     }
-}
+};
